@@ -25,9 +25,9 @@ node* createnode(int x);
 void addheadlist(list& l, node* p);
 node* addhead(node* p, int x);
 node* addtail(node* p, int x);
-node* deletehead(node* p);
-node* deletetail(node* p);
-node* deleteat(node* p, int pos);
+void deletehead(list& l);
+void deletetail(list& l);
+void deleteat(list& l, int pos);
 void deleteheadlist(list& l);
 node* addat(node* p, int pos, int x);
 

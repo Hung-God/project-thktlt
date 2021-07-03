@@ -5,6 +5,7 @@ void init(list& l)
 	l.head = NULL;
 	l.tail = NULL;
 }
+
 void add_tail(list& l, int x)
 {
 	node* p = new node;
@@ -91,36 +92,47 @@ node* addtail(node* p, int x)
 	q->next = temp;
 	return p;
 }
-node* deletehead(node* p)
+
+void deletehead(list& l)
 {
-	node* q = p;
-	q = q->next;
-	delete(p);
-	return q;
-}
-node* deletetail(node* p)
-{
-	node* q = p;
-	while (q->next->next != NULL)
+	if (l.head == NULL)
+		cout << "Nothing to delete !\n";
+	else
 	{
-		q = q->next;
+		node* q = l.head;
+		l.head = l.head->next;
+		delete(q);
 	}
-	delete(q->next);
-	q->next = NULL;
-	return p;
 }
-node* deleteat(node* p, int pos)
+
+void deletetail(list& l)
 {
-	node* q = p;
-	for (int i = 0; i < pos - 1; i++)
+	if (l.head == NULL)
+		cout << "Nothing to delete !\n";
+	else
+	{
+		node* q = l.head;
+		while (q->next != l.tail)
+		{
+			q = q->next;
+		}
+		delete(q->next);
+		q->next = NULL;
+		l.tail = q;
+	}
+}
+void deleteat(list &l, int pos)
+{
+	node* q = l.head;
+	for (int i = 2; i < pos ; i++)
 	{
 		q = q->next;
 	}
 	node* temp = q->next;
 	q->next = q->next->next;
 	delete(temp);
-	return p;
 }
+
 void addheadlist(list& l, node* p)
 {
 	if (l.head == NULL)
@@ -159,3 +171,4 @@ node* addat(node* p, int pos, int x)
 	q->next = temp;
 	return p;
 }
+

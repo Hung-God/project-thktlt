@@ -9,37 +9,36 @@ int main()
 	output(l);
 	int n;
 	cout << "\n===== Menu ====== " << endl;
-	cout << "1.Delete pos. " << endl;
+	cout << "1. Delete pos. " << endl;
 	cout << "2. Insert pos val. " << endl;
 	cout << "3. Exit. ";
 	do
 	{
-		cout << "\nYour choose : ";
+		cout << "\nCommand > : ";
 		cin >> n;
 		switch (n)
 		{
 		case 1:
 		{
-			node* q = createnode(0);
-			addheadlist(l, q);
+			/*node* q = createnode(0);
+			addheadlist(l, q);*/
 			int a = length(l);
 			node* p = l.head;
 			int k;
 			cout << " Delete ";
 			cin >> k;
-			if (k == 0)
+			if (k == 1)
 			{
-				deletehead(p);
+				deletehead(l);
 			}
-			else if (k == a - 1)
+			else if (k == a)
 			{
-				deletetail(p);
+				deletetail(l);
 			}
 			else
 			{
-				deleteat(p, k);
+				deleteat(l, k);
 			}
-			deleteheadlist(l);
 			output(l);
 			break;
 		}
