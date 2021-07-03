@@ -1,34 +1,76 @@
-#ifndef Header_H
-#define Header_H
-#include<iostream>
-#include<fstream>
-using namespace std;
+#include"Header.h"
 
-struct node
+int main()
 {
-	int data;
-	node* next;
-};
-
-struct list
-{
-	node* head;
-	node* tail;
-};
-
-void init(list& l);
-void add_tail(list& l, int x);
-void read_file(list& l);
-void output(list l);
-int length(list l);
-node* createnode(int x);
-void addheadlist(list& l, node* p);
-node* addhead(node* p, int x);
-node* addtail(node* p, int x);
-void deletehead(list& l);
-void deletetail(list& l);
-void deleteat(list& l, int pos);
-void deleteheadlist(list& l);
-node* addat(node* p, int pos, int x);
-
-#endif
+	list l;
+	init(l);
+	read_file(l);
+	output(l);
+	string chu;
+	cout << "\n===== Menu ====== " << endl;
+	cout << "Delete pos. " << endl;
+	cout << "Insert pos val. " << endl;
+	cout << "Quit. ";
+	int n;
+	do
+	{
+		cout << "\nCommand > : ";
+		cin >> chu;
+		if (chu == "Delete")
+		{
+			n = 1;
+		}
+		else if (chu == "Insert")
+		{
+			n = 2;
+		}
+		else if (chu == "Quit")
+		{
+			n = 3;
+		}
+		switch (n)
+		{
+		case 1:
+		{
+			int a = length(l);
+			int k;
+			cin >> k;
+			if (k == 1)
+			{
+				deletehead(l);
+			}
+			else if (k == a)
+			{
+				deletetail(l);
+			}
+			else
+			{
+				deleteat(l, k);
+			}
+			output(l);
+			break;
+		}
+		case 2:
+		{
+			int a = length(l);
+			int k;
+			int x;
+			cin >> k >> x;
+			if (k == 1)
+			{
+				addhead(l, x);
+			}
+			else if (k == a + 1)
+			{
+				add_tail(l, x);
+			}
+			else
+			{
+				addat(l, k, x);
+			}
+			output(l);
+			break;
+		}
+		}
+	} while (n != 3);
+}

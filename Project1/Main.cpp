@@ -2,30 +2,35 @@
 
 int main()
 {
-	int x;
 	list l;
 	init(l);
 	read_file(l);
 	output(l);
-	int n;
+	string chu;
 	cout << "\n===== Menu ====== " << endl;
-	cout << "1. Delete pos. " << endl;
-	cout << "2. Insert pos val. " << endl;
-	cout << "3. Exit. ";
+	cout << "Delete pos. " << endl;
+	cout << "Insert pos val. " << endl;
+	cout << "Quit. ";
+	int n;
 	do
 	{
 		cout << "\nCommand > : ";
-		cin >> n;
+		cin >> chu;
+		if (chu == "Delete")
+		{
+			n = 1;
+		}
+		else if (chu == "Insert")
+		{
+			n = 2;
+		}
+		else 
 		switch (n)
 		{
 		case 1:
 		{
-			/*node* q = createnode(0);
-			addheadlist(l, q);*/
 			int a = length(l);
-			node* p = l.head;
 			int k;
-			cout << " Delete ";
 			cin >> k;
 			if (k == 1)
 			{
@@ -44,27 +49,22 @@ int main()
 		}
 		case 2:
 		{
-			node* q = createnode(0);
-			addheadlist(l, q);
 			int a = length(l);
-			node* p = l.head;
 			int k;
 			int x;
-			cout << "Insert ";
 			cin >> k >> x;
-			if (k == 0)
+			if (k == 1)
 			{
-				addhead(p, x);
+				addhead(l, x);
 			}
-			else if (k == n)
+			else if (k == a + 1)
 			{
-				addtail(p, x);
+				add_tail(l, x);
 			}
 			else
 			{
-				addat(p, k, x);
+				addat(l, k, x);
 			}
-			deleteheadlist(l);
 			output(l);
 			break;
 		}
