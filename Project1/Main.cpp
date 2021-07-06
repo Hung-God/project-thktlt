@@ -24,7 +24,10 @@ int main()
 		{
 			n = 2;
 		}
-		else 
+		else if (chu == "Quit")
+		{
+			n = 3;
+		}
 		switch (n)
 		{
 		case 1:
@@ -32,7 +35,11 @@ int main()
 			int a = length(l);
 			int k;
 			cin >> k;
-			if (k == 1)
+			if (k == 0)
+			{
+				cout << "Wrong input, re-enter ! ";
+			}
+			else if (k == 1)
 			{
 				deletehead(l);
 			}
@@ -53,6 +60,11 @@ int main()
 			int k;
 			int x;
 			cin >> k >> x;
+			if (k == 0)
+			{
+
+				cout << "Wrong input, re-enter ! ";
+			}
 			if (k == 1)
 			{
 				addhead(l, x);
