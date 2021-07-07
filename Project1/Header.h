@@ -27,5 +27,6 @@ void deletetail(list& l);
 void deleteat(list& l, int pos);
 void addhead(list& l, int x);
 void addat(list& l, int pos, int x);
-
+void Push(int stack[], int value, int& top);
+int printoutat(list l, int pos);
 #endif

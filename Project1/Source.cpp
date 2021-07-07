@@ -61,7 +61,6 @@ int length(list l)
 		p = p->next;
 	}
 	return count;
-
 }
 
 void deletehead(list& l)
@@ -125,3 +124,40 @@ void addat(list& l, int pos, int x)
 	temp->next = q->next;
 	q->next = temp;
 }
+
+bool IsEmpty(int top) 
+{
+	if (top == -1) 
+	{
+		return true;
+	}
+	else 
+	{
+		return false;
+	}
+}
+
+int printoutat(list l, int pos)
+{
+	node* q = l.head;
+	for (int i = 2; i <= pos; i++)
+	{
+		q = q->next;
+	}
+	return q->data;
+}
+
+void Push(int stack[], int value, int& top) 
+{
+	top++;
+	stack[top] = value;
+}
+
+void Pop(int stack[], int top) 
+{
+	if (IsEmpty(top) == false) 
+	{
+		top--;
+	}
+}
+
