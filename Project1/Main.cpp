@@ -16,15 +16,15 @@ int main()
 	{
 		cout << "\nCommand > : ";
 		cin >> chu;
-		if (chu == "Delete")
+		if (chu == "Delete" || chu == "delete")
 		{
 			n = 1;
 		}
-		else if (chu == "Insert")
+		else if (chu == "Insert" || chu == "insert")
 		{
 			n = 2;
 		}
-		else if (chu == "Quit")
+		else if (chu == "Quit" || chu == "quit")
 		{
 			n = 3;
 		}
