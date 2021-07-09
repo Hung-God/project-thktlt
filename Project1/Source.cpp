@@ -169,6 +169,7 @@ void save(LIST l)
 {
 	fstream f;
 	f.open("output.txt", ios_base::app);
+	f << '\n';
 	if (f.fail())
 	{
 		cout << "Opening file fail !" << endl;
