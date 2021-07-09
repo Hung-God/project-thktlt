@@ -192,7 +192,7 @@ int main()
 				}
 				else if (log[top + 2] == a + 1)
 				{
-					addTail(l, log[top]);
+					 addTail(l, log[top]);
 				}
 				else
 				{
@@ -224,6 +224,8 @@ int main()
 			{
 				log[i] = INT_MIN;
 			}
+			int top = -1;
+			int dem = 0;
 
 			//Huy moi du lieu hien tai
 			releaseList(l);
