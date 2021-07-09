@@ -1,32 +1,36 @@
-#ifndef Header_H
-#define Header_H
+#ifndef Header_h
+#define Header_h
+
 #include<iostream>
 #include<fstream>
 #include<string>
 using namespace std;
 
-struct node
+struct NODE
 {
 	int data;
-	node* next;
+	NODE* pNext;
 };
 
-struct list
+struct LIST
 {
-	node* head;
-	node* tail;
+	NODE* pHead;
+	NODE* pTail;
 };
 
-void init(list& l);
-void add_tail(list& l, int x);
-void read_file(list& l);
-void output(list l);
-int length(list l);
-void deletehead(list& l);
-void deletetail(list& l);
-void deleteat(list& l, int pos);
-void addhead(list& l, int x);
-void addat(list& l, int pos, int x);
-void Push(int stack[], int value, int& top);
-int printoutat(list l, int pos);
+void init(LIST& l);
+void addTail(LIST& l, int x);
+void readFile(LIST& l);
+void output(LIST l);
+int length(LIST l);
+void deleteHead(LIST& l);
+void deleteTail(LIST& l);
+void deleteAt(LIST& l, int pos);
+void addHead(LIST& l, int x);
+void addAt(LIST& l, int pos, int x);
+bool isEmpty(int top);
+void push(int stack[], int value, int& top);
+void pop(int stack[], int top);
+int printOutAt(LIST l, int pos);
+
 #endif

@@ -4,9 +4,9 @@ int main()
 {
 	int log[1000];
 	int top = -1;
-	list l;
+	LIST l;
 	init(l);
-	read_file(l);
+	readFile(l);
 	output(l);
 	string chu;
 	cout << "\n===== Menu ====== " << endl;
@@ -52,24 +52,24 @@ int main()
 			}
 			else if (k == 1)
 			{
-				Push(log, 1, top);
-				Push(log, k, top);
-				Push(log, l.head->data, top);
-				deletehead(l);
+				push(log, 1, top);
+				push(log, k, top);
+				push(log, l.pHead->data, top);
+				deleteHead(l);
 			}
 			else if (k == a)
 			{
-				Push(log, 1, top);
-				Push(log, k, top);
-				Push(log, l.tail->data, top);
-				deletetail(l);
+				push(log, 1, top);
+				push(log, k, top);
+				push(log, l.pTail->data, top);
+				deleteTail(l);
 			}
 			else
 			{
-				Push(log, 1, top);
-				Push(log, k, top);
-				Push(log, printoutat(l, k), top);
-				deleteat(l, k);
+				push(log, 1, top);
+				push(log, k, top);
+				push(log, printOutAt(l, k), top);
+				deleteAt(l, k);
 			}
 			output(l);
 			cout << endl;
@@ -87,24 +87,24 @@ int main()
 			}
 			if (k == 1)
 			{
-				Push(log, 2, top);
-				Push(log, k, top);
-				Push(log, x, top);
-				addhead(l, x);
+				push(log, 2, top);
+				push(log, k, top);
+				push(log, x, top);
+				addHead(l, x);
 			}
 			else if (k == a + 1)
 			{
-				Push(log, 2, top);
-				Push(log, k, top);
-				Push(log, x, top);
-				add_tail(l, x);
+				push(log, 2, top);
+				push(log, k, top);
+				push(log, x, top);
+				addTail(l, x);
 			}
 			else
 			{
-				Push(log, 2, top);
-				Push(log, k, top);
-				Push(log, x, top);
-				addat(l, k, x);
+				push(log, 2, top);
+				push(log, k, top);
+				push(log, x, top);
+				addAt(l, k, x);
 			}
 			output(l);
 			cout << endl;
@@ -117,15 +117,15 @@ int main()
 				int a = length(l);
 				if (log[top-1] == 1)
 				{
-					addhead(l, log[top]);
+					addHead(l, log[top]);
 				}
 				else if (log[top-1] == a + 1)
 				{
-					add_tail(l, log[top]);
+					addTail(l, log[top]);
 				}
 				else
 				{
-					addat(l, log[top-1], log[top]);
+					addAt(l, log[top-1], log[top]);
 				}
 				top -= 3;
 				output(l);
@@ -136,15 +136,15 @@ int main()
 				int a = length(l);
 				if (log[top-1] == 1)
 				{
-					deletehead(l);
+					deleteHead(l);
 				}
 				else if (log[top-1] == a)
 				{
-					deletetail(l);
+					deleteTail(l);
 				}
 				else
 				{
-					deleteat(l, log[top-1]);
+					deleteAt(l, log[top-1]);
 				}
 				top -= 3;
 				output(l);
@@ -159,15 +159,15 @@ int main()
 				int a = length(l);
 				if (log[top + 2] == 1)
 				{
-					deletehead(l);
+					deleteHead(l);
 				}
 				else if (log[top + 2] == a)
 				{
-					deletetail(l);
+					deleteTail(l);
 				}
 				else
 				{
-					deleteat(l, log[top + 2]);
+					deleteAt(l, log[top + 2]);
 				}
 				top += 3;
 				output(l);
@@ -178,15 +178,15 @@ int main()
 				int a = length(l);
 				if (log[top + 2] == 1)
 				{
-					addhead(l, log[top]);
+					addHead(l, log[top]);
 				}
 				else if (log[top + 2] == a + 1)
 				{
-					add_tail(l, log[top]);
+					addTail(l, log[top]);
 				}
 				else
 				{
-					addat(l, log[top + 2], log[top+3]);
+					addAt(l, log[top + 2], log[top+3]);
 				}
 				top += 3;
 				output(l);
@@ -208,11 +208,11 @@ int main()
 					cout << " Opening file fail !" << endl;
 					break;
 				}
-				node* temp = l.head;
+				NODE* temp = l.pHead;
 				while (temp != NULL)
 				{
 					ofile << temp->data << " ";
-					temp = temp->next;
+					temp = temp->pNext;
 				}
 				cout << "Numbers have been stored." << endl;
 				ofile.close();

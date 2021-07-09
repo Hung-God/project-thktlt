@@ -1,29 +1,30 @@
 #include "Header.h"
 
-void init(list& l)
+void init(LIST& l)
 {
-	l.head = NULL;
-	l.tail = NULL;
+	l.pHead = NULL;
+	l.pTail = NULL;
 }
 
-void add_tail(list& l, int x)
+void addTail(LIST& l, int x)
 {
-	node* p = new node;
-	if (l.head == NULL)
+	NODE* p = new NODE;
+	if (l.pHead == NULL)
 	{
 		p->data = x;
-		l.head = p;
-		l.tail = p;
+		l.pHead = p;
+		l.pTail = p;
 	}
 	else
 	{
 		p->data = x;
-		l.tail->next = p;
-		l.tail = p;
-		l.tail->next = NULL;
+		l.pTail->pNext = p;
+		l.pTail = p;
+		l.pTail->pNext = NULL;
 	}
 }
-void read_file(list& l)
+
+void readFile(LIST& l)
 {
 	int n = -1;
 	ifstream file;
@@ -35,97 +36,100 @@ void read_file(list& l)
 	}
 	while (file >> n)
 	{
-		add_tail(l, n);
+		addTail(l, n);
 	}
 	file.close();
 }
-void output(list l)
+
+void output(LIST l)
 {
-	if (l.head != NULL)
+	if (l.pHead != NULL)
 	{
-		node* p = l.head;
+		NODE* p = l.pHead;
 		while (p != NULL)
 		{
 			cout << p->data << "  ";
-			p = p->next;
+			p = p->pNext;
 		}
 	}
 }
-int length(list l)
+
+int length(LIST l)
 {
 	int count = 0;
-	node* p = l.head;
+	NODE* p = l.pHead;
 	while (p != NULL)
 	{
 		count++;
-		p = p->next;
+		p = p->pNext;
 	}
 	return count;
 }
 
-void deletehead(list& l)
+void deleteHead(LIST& l)
 {
-	if (l.head == NULL)
+	if (l.pHead == NULL)
 		cout << "Nothing to delete !\n";
 	else
 	{
-		node* q = l.head;
-		l.head = l.head->next;
+		NODE* q = l.pHead;
+		l.pHead = l.pHead->pNext;
 		delete(q);
 	}
 }
 
-void deletetail(list& l)
+void deleteTail(LIST& l)
 {
-	if (l.head == NULL)
+	if (l.pHead == NULL)
 		cout << "Nothing to delete !\n";
 	else
 	{
-		node* q = l.head;
-		while (q->next != l.tail)
+		NODE* q = l.pHead;
+		while (q->pNext != l.pTail)
 		{
-			q = q->next;
+			q = q->pNext;
 		}
-		delete(q->next);
-		q->next = NULL;
-		l.tail = q;
+		delete(q->pNext);
+		q->pNext = NULL;
+		l.pTail = q;
 	}
 }
-void deleteat(list& l, int pos)
+
+void deleteAt(LIST& l, int pos)
 {
-	node* q = l.head;
+	NODE* q = l.pHead;
 	for (int i = 2; i < pos; i++)
 	{
-		q = q->next;
+		q = q->pNext;
 	}
-	node* temp = q->next;
-	q->next = q->next->next;
+	NODE* temp = q->pNext;
+	q->pNext = q->pNext->pNext;
 	delete(temp);
 }
 
-
-void addhead(list& l, int x)
+void addHead(LIST& l, int x)
 {
-	node* q = new node;
+	NODE* q = new NODE;
 	q->data = x;
-	q->next = l.head;
-	l.head = q;
+	q->pNext = l.pHead;
+	l.pHead = q;
 
 }
-void addat(list& l, int pos, int x)
+
+void addAt(LIST& l, int pos, int x)
 {
-	node* q = l.head;
+	NODE* q = l.pHead;
 	for (int i = 2; i < pos; i++)
 	{
-		q = q->next;
+		q = q->pNext;
 	}
-	node* temp = new node;
+	NODE* temp = new NODE;
 	temp->data = x;
-	temp->next = q->next;
-	q->next = temp;
+	temp->pNext = q->pNext;
+	q->pNext = temp;
 }
 
-bool IsEmpty(int top) 
+bool isEmpty(int top) 
 {
 	if (top == -1) 
 	{
@@ -137,25 +141,25 @@ bool IsEmpty(int top)
 	}
 }
 
-int printoutat(list l, int pos)
+int printOutAt(LIST l, int pos)
 {
-	node* q = l.head;
+	NODE* q = l.pHead;
 	for (int i = 2; i <= pos; i++)
 	{
-		q = q->next;
+		q = q->pNext;
 	}
 	return q->data;
 }
 
-void Push(int stack[], int value, int& top) 
+void push(int stack[], int value, int& top) 
 {
 	top++;
 	stack[top] = value;
 }
 
-void Pop(int stack[], int top) 
+void pop(int stack[], int top) 
 {
-	if (IsEmpty(top) == false) 
+	if (isEmpty(top) == false) 
 	{
 		top--;
 	}
