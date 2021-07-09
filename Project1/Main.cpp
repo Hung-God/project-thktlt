@@ -4,45 +4,53 @@ int main()
 {
 	int log[1000];
 	int top = -1;
+	int dem = 0;
+
 	LIST l;
 	init(l);
 	readFile(l);
 	output(l);
+
 	string chu;
-	cout << "\n===== Menu ====== " << endl;
+
+	cout << "\n========= MENU ========= " << endl;
 	cout << "Delete pos. " << endl;
 	cout << "Insert pos val. " << endl;
 	cout << "Undo" << endl;
 	cout << "Redo" << endl;
 	cout << "Save" << endl;
+	cout << "Reset" << endl;
 	cout << "Quit. " << endl;
+
 	int n;
 	do
 	{
 		cout << "\nCommand > : ";
 		cin >> chu;
+
 		if (chu == "Delete" || chu == "delete")
-		{
 			n = 1;
-		}
 		else if (chu == "Insert" || chu == "insert")
-		{
 			n = 2;
-		}
 		else if (chu == "Undo" || chu == "undo")
 			n = 3;
 		else if (chu == "Redo" || chu == "redo")
 			n = 4;
 		else if (chu == "Save" || chu == "save")
 			n = 5;
+		else if (chu == "Reset" || chu == "reset")
+			n = 6;
 		else if (chu == "Quit" || chu == "quit")
-		{
-			n = 0;
-		}
+			n = 7;
+		else
+			n = 8;
+
 		switch (n)
 		{
 		case 1:
 		{
+			dem += 3;
+
 			int a = length(l);
 			int k;
 			cin >> k;
@@ -77,6 +85,8 @@ int main()
 		}
 		case 2:
 		{
+			dem += 3;
+
 			int a = length(l);
 			int k;
 			int x;
@@ -198,27 +208,46 @@ int main()
 		{
 			int a = length(l);
 			if (a == 0)
+			{
 				break;
+			}
 			else
 			{
-				fstream ofile;
-				ofile.open("output.txt", ios::out);
-				if (ofile.fail())
-				{
-					cout << " Opening file fail !" << endl;
-					break;
-				}
-				NODE* temp = l.pHead;
-				while (temp != NULL)
-				{
-					ofile << temp->data << " ";
-					temp = temp->pNext;
-				}
-				cout << "Numbers have been stored." << endl;
-				ofile.close();
+				save(l);
 			}
 			break;
 		}
+		case 6:
+		{
+			//Xoa lich su lam viec
+			for (int i = 0; i < dem; i++)
+			{
+				log[i] = INT_MIN;
+			}
+
+			//Huy moi du lieu hien tai
+			releaseList(l);
+
+			//Nap lai day so input
+			readFile(l);
+
+			break;
 		}
-	} while (n != 0);
+		case 7:
+		{
+			//Luu day so ket qua cua phien lam viec hien tai vao tap tin output
+			writeFile(l);
+
+			//Huy moi du lieu va giai phong bo nho
+			releaseList(l);
+
+			break;
+		}
+		case 8:
+		{
+			cout << "Command not found..." << endl;
+			break;
+		}
+		}
+	} while (n != 7);
 }

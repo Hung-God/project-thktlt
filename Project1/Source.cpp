@@ -165,3 +165,48 @@ void pop(int stack[], int top)
 	}
 }
 
+void save(LIST l)
+{
+	fstream f;
+	f.open("output.txt", ios_base::app);
+	if (f.fail())
+	{
+		cout << "Opening file fail !" << endl;
+		return;
+	}
+	for (NODE* k = l.pHead; k != NULL; k = k->pNext)
+	{
+		f << k->data << " ";
+	}
+	cout << "Numbers have been stored." << endl;
+	f.close();
+}
+
+void writeFile(LIST l)
+{
+	fstream f;
+	f.open("output.txt", ios_base::out);
+	if (f.fail())
+	{
+		cout << "Opening file fail !" << endl;
+		return;
+	}
+	NODE* temp = l.pHead;
+	for (NODE* k = l.pHead; k != NULL; k = k->pNext)
+	{
+		f << k->data << " ";
+	}
+	f.close();
+}
+
+void releaseList(LIST& l)
+{
+
+	NODE* k = NULL;
+	while (l.pHead != NULL)
+	{
+		k = l.pHead;
+		l.pHead = l.pHead->pNext;
+		delete k;
+	}
+}
