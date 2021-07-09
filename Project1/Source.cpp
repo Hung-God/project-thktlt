@@ -192,7 +192,6 @@ void writeFile(LIST l)
 		cout << "Opening file fail !" << endl;
 		return;
 	}
-	NODE* temp = l.pHead;
 	for (NODE* k = l.pHead; k != NULL; k = k->pNext)
 	{
 		f << k->data << " ";
