@@ -129,18 +129,6 @@ void addAt(LIST& l, int pos, int x)
 	q->pNext = temp;
 }
 
-bool isEmpty(int top) 
-{
-	if (top == -1) 
-	{
-		return true;
-	}
-	else 
-	{
-		return false;
-	}
-}
-
 int printOutAt(LIST l, int pos)
 {
 	NODE* q = l.pHead;
