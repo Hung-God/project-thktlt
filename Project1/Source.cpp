@@ -157,14 +157,6 @@ void push(int stack[], int value, int& top)
 	stack[top] = value;
 }
 
-void pop(int stack[], int top) 
-{
-	if (isEmpty(top) == false) 
-	{
-		top--;
-	}
-}
-
 void save(LIST l)
 {
 	fstream f;

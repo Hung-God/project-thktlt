@@ -31,7 +31,6 @@ void addAt(LIST& l, int pos, int x);
 bool isEmpty(int top);
 int printOutAt(LIST l, int pos);
 void push(int stack[], int value, int& top);
-void pop(int stack[], int top);
 void save(LIST l);
 void releaseList(LIST& l);
 void writeFile(LIST l);
