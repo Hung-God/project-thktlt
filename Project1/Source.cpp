@@ -181,12 +181,12 @@ void writeFile(LIST l)
 
 void releaseList(LIST& l)
 {
-
+	//duyet tu dau danh sach den cuoi danh sach
 	NODE* k = NULL;
 	while (l.pHead != NULL)
 	{
 		k = l.pHead;
 		l.pHead = l.pHead->pNext;
-		delete k;
+		delete k; //giai phong tung cai node trong danh sach
 	}
 }
