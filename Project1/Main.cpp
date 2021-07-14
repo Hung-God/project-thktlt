@@ -125,11 +125,11 @@ int main()
 			if (log[top-2] == 1)
 			{
 				int a = length(l);
-				if (log[top-1] == 1)
+				if (log[top - 1] == 1)
 				{
 					addHead(l, log[top]);
 				}
-				else if (log[top-1] == a + 1)
+				else if (log[top - 1] == a + 1)
 				{
 					addTail(l, log[top]);
 				}
@@ -144,11 +144,11 @@ int main()
 			else if (log[top - 2] == 2)
 			{
 				int a = length(l);
-				if (log[top-1] == 1)
+				if (log[top - 1] == 1)
 				{
 					deleteHead(l);
 				}
-				else if (log[top-1] == a)
+				else if (log[top - 1] == a)
 				{
 					deleteTail(l);
 				}
@@ -207,7 +207,7 @@ int main()
 		case 5:
 		{
 			int a = length(l);
-			if (a == 0)
+			if (a == 0) //khi do dai cua day so la 0 thi khong lam gi het
 			{
 				break;
 			}
@@ -226,23 +226,18 @@ int main()
 			}
 			int top = -1;
 			int dem = 0;
-
 			//Huy moi du lieu hien tai
 			releaseList(l);
-
 			//Nap lai day so input
 			readFile(l);
-
 			break;
 		}
 		case 7:
 		{
 			//Luu day so ket qua cua phien lam viec hien tai vao tap tin output
 			writeFile(l);
-
 			//Huy moi du lieu va giai phong bo nho
 			releaseList(l);
-
 			break;
 		}
 		case 8:
