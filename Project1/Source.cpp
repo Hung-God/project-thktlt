@@ -181,7 +181,7 @@ void writeFile(LIST l)
 
 void releaseList(LIST& l)
 {
-	//duyet tu dau danh sach den cuoi danh sach
+	//Duyet tu dau danh sach den cuoi danh sach
 	NODE* k = NULL;
 	while (l.pHead != NULL)
 	{
